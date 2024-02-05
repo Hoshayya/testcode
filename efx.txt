@@ -1,0 +1,73 @@
+import java.util.ArrayList;
+import com.itextpdf.io.image.ImageData;
+import com.itextpdf.io.image.ImageDataFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+public class DqrPdfConstants {
+    private static final Logger LOG = LogManager.getLogger(DqrPdfConstants.class);
+
+    public static final float leftMargin = 30;
+    public static final float rightMargin = 30;
+    public static final float topMargin = 85;
+    public static final float bottomMargin = 30;
+    public static final float leftMarginHdrLabel = 10;
+    public static final String equiFaxLogo = ".//resources//EquiFaxLogo.jpg";
+    // Other constants...
+
+    public static ImageData image = null;
+
+    // Define method to get headers for the table columns
+    public static ArrayList<String> getAddressHeaders() {
+        ArrayList<String> headers = new ArrayList<>();
+        headers.add("Availability which satisfies all condition");
+        headers.add("Weight");
+        headers.add("Weightage Score(%)");
+        return headers;
+    }
+
+    // Define methods to get data for each column
+    public static ArrayList<String> getAddressColumn1Data() {
+        ArrayList<String> data = new ArrayList<>();
+        // Add data for column 1
+        return data;
+    }
+
+    public static ArrayList<String> getAddressColumn2Data() {
+        ArrayList<String> data = new ArrayList<>();
+        // Add data for column 2
+        return data;
+    }
+
+    public static ArrayList<String> getAddressColumn3Data() {
+        ArrayList<String> data = new ArrayList<>();
+        // Add data for column 3
+        return data;
+    }
+
+    // Method to generate the PDF content
+    public static void generatePDFContent() {
+        // Logic to generate PDF content using the headers and data
+        ArrayList<String> headers = getAddressHeaders();
+        ArrayList<String> column1Data = getAddressColumn1Data();
+        ArrayList<String> column2Data = getAddressColumn2Data();
+        ArrayList<String> column3Data = getAddressColumn3Data();
+
+        // Logic to create PDF table with three columns
+        // Populate the table with data retrieved from the methods
+    }
+
+    static {
+        try {
+            // Initialize image data
+            image = ImageDataFactory.create(DqrPdfConstants.equiFaxLogo);
+        } catch (Exception e) {
+            LOG.error("Error DQRPdfConstants:", e);
+        }
+    }
+
+    public static void main(String[] args) {
+        // Call the method to generate PDF content
+        generatePDFContent();
+    }
+}
